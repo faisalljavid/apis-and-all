@@ -44,4 +44,6 @@ document.getElementById("new-post").addEventListener("submit", (e) => {
             postsArray.unshift(post)
             renderPosts()
         })
+    const myForm = document.getElementById("new-post")
+    myForm.reset()
 })

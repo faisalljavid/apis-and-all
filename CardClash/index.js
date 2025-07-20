@@ -1,10 +1,13 @@
 let deckId
+let computerScore = 0
+let userScore = 0
 const cardsContainer = document.getElementById("cards")
 const newDeckBtn = document.getElementById("new-deck")
 const drawCardBtn = document.getElementById("draw-cards")
 const header = document.getElementById("header")
 const remainingText = document.getElementById("remaining-cards")
-
+const computerScoreEl = document.getElementById("computer-score")
+const userScoreEl = document.getElementById("user-score")
 
 
 function handleClick() {
@@ -36,6 +39,14 @@ drawCardBtn.addEventListener("click", () => {
 
             if (data.remaining === 0) {
                 drawCardBtn.disabled = true
+
+                if (computerScore > userScore) {
+                    header.innerText = "Oops! The computer won!"
+                } else if (userScore > computerScore) {
+                    header.innerText = "Congrats! You won!"
+                } else {
+                    header.innerText = "It's a tie!"
+                }
             }
         })
 })
@@ -57,8 +68,12 @@ map1.set("ACE", 14)
 
 function determineWinner(card1, card2) {
     if (map1.get(card1.value) > map1.get(card2.value)) {
+        computerScore++
+        computerScoreEl.innerText = `Computer Score: ${computerScore}`
         return "Computer Wins!"
     } else if (map1.get(card1.value) < map1.get(card2.value)) {
+        userScore++
+        userScoreEl.innerText = `Your Score: ${userScore}`
         return "You Win!"
     } else {
         return "War!"

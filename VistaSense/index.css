@@ -5,9 +5,6 @@
 body {
     margin: 0;
     background: no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -31,7 +28,6 @@ h1.time {
     text-align: center;
     font-size: 4rem;
 }
-
 
 div#crypto {
     font-size: 1.3rem;
